@@ -7,9 +7,12 @@
 
 .content_table {
     font-family: arial, sans-serif;
-    width: auto;
+    width: 80vh;
     display: flex;
     justify-content: center;
+    margin: auto;
+    box-shadow: 2px 5px 20px 4px;
+    border-radius: 4px;
   }
 
   #content {

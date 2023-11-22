@@ -139,7 +139,7 @@ y añadir más datos como volumen de transacciones o capitalización de mercado.
       row.insertCell(1).textContent = data.precioanterior.toFixed(2); //tofixed agrega decimal
       row.insertCell(2).textContent = data.precio.toFixed(2);
       row.insertCell(3).textContent = `${data.cambio.toFixed(2)}%`;
-      
+
       });
   }
 
