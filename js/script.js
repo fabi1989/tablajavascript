@@ -122,9 +122,9 @@ y añadir más datos como volumen de transacciones o capitalización de mercado.
 
 
   let tablaDeAcciones = [
-    {nombre: 'Santander', precioanterior: 20, precio: 30, cambio: 10},
+    {nombre: 'Santander', precioanterior: 50, precio: 100, cambio: 10 },
     {nombre: 'Banco de Sabadell', precioanterior: 20 , precio: 10, cambio: 20},
-    {nombre: 'BBVA', precioanterior: 20 , precio: 20, cambio: 50},
+    {nombre: 'BBVA', precioanterior: 20 , precio: 25, cambio: 50},
     {nombre: 'Repsol', precioanterior: 20, precio: 30, cambio: 40},
     {nombre: 'CaixaBank', precioanterior: 20, precio: 40, cambio: 50},
   ];
@@ -138,12 +138,15 @@ y añadir más datos como volumen de transacciones o capitalización de mercado.
       row.insertCell(0).textContent = data.nombre;  //textcontent devuelve el contenido del texto
       row.insertCell(1).textContent = data.precioanterior.toFixed(2); //tofixed agrega decimal
       row.insertCell(2).textContent = data.precio.toFixed(2);
-      row.insertCell(3).textContent = `${data.cambio.toFixed(2)}%`;
+      //row.insertCell(3).textContent = `${data.cambio.toFixed(2)}%`;
+      const cambioactual = data.precio - data.precioanterior;
+      row.insertCell(3).textContent = `${(cambioactual / data.precio * 100)}%`;
 
       });
   }
-
   probartabla();
+  
+
 
 
   /*function probartabla() {
