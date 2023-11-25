@@ -37,7 +37,6 @@
         
 */
 
-
 /* ENUNCIADO 
 
 Objetivo: 
@@ -97,7 +96,7 @@ y añadir más datos como volumen de transacciones o capitalización de mercado.
 
 */
 
- /*let marketData = [
+/*let marketData = [
     { name: 'Empresa A', price: 100, change: 0.5 },
     { name: 'Empresa B', price: 200, change: -0.3 },
     { name: 'Empresa C', price: 150, change: 0.8 }
@@ -120,36 +119,35 @@ y añadir más datos como volumen de transacciones o capitalización de mercado.
   
   populateTable(); */
 
+let tablaDeAcciones = [
+  { nombre: "Santander", precioanterior: 50, precio: 100, cambio: 10 },
+  { nombre: "Banco de Sabadell", precioanterior: 20, precio: 55, cambio: 20 },
+  { nombre: "BBVA", precioanterior: 20, precio: 25, cambio: 50 },
+  { nombre: "Repsol", precioanterior: 20, precio: 30, cambio: 40 },
+  { nombre: "CaixaBank", precioanterior: 20, precio: 40, cambio: 50 },
+];
 
-  let tablaDeAcciones = [
-    {nombre: 'Santander', precioanterior: 50, precio: 100, cambio: 10 },
-    {nombre: 'Banco de Sabadell', precioanterior: 20 , precio: 10, cambio: 20},
-    {nombre: 'BBVA', precioanterior: 20 , precio: 25, cambio: 50},
-    {nombre: 'Repsol', precioanterior: 20, precio: 30, cambio: 40},
-    {nombre: 'CaixaBank', precioanterior: 20, precio: 40, cambio: 50},
-  ];
+function probartabla() {
+  const tabla = document.getElementById("tabla");
 
-  function probartabla(){
-    const tabla=document.getElementById('tabla');
-    
+  tablaDeAcciones.forEach((data) => {
+    //reemplazo f.flecha: tablaDeAcciones.foreach(function(data){})
+    const row = tabla.insertRow();
+    row.insertCell(0).textContent = data.nombre; //textcontent devuelve el contenido del texto
+    row.insertCell(1).textContent = data.precioanterior.toFixed(2); //tofixed agrega decimal
+    row.insertCell(2).textContent = data.precio.toFixed(2);
+    //row.insertCell(3).textContent = `${data.cambio.toFixed(2)}%`;
 
-    tablaDeAcciones.forEach((data) => {  //reemplazo de f.flecha: tablaDeAcciones.foreach(function(data){})
-      const row = tabla.insertRow();
-      row.insertCell(0).textContent = data.nombre;  //textcontent devuelve el contenido del texto
-      row.insertCell(1).textContent = data.precioanterior.toFixed(2); //tofixed agrega decimal
-      row.insertCell(2).textContent = data.precio.toFixed(2);
-      //row.insertCell(3).textContent = `${data.cambio.toFixed(2)}%`;
-      const cambioactual = data.precio - data.precioanterior;
-      row.insertCell(3).textContent = `${(cambioactual / data.precio * 100)}%`;
+    const cambioactual = data.precio - data.precioanterior;
+    row.insertCell(3).textContent = `${(
+      (cambioactual / data.precio) *
+      100
+    ).toFixed(2)}%`;
+  });
+}
+probartabla();
 
-      });
-  }
-  probartabla();
-  
-
-
-
-  /*function probartabla() {
+/*function probartabla() {
     const tabla = document.getElementById('tabla');
     //tabla.innerHTML = ''; // Clear the table
   
@@ -164,9 +162,3 @@ y añadir más datos como volumen de transacciones o capitalización de mercado.
   }
   
   probartabla(); */
-
-
-  
-  
-
-  
