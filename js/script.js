@@ -129,6 +129,7 @@ let tablaDeAcciones = [
 
 function probartabla() {
   const tabla = document.getElementById("tabla");
+  tabla.innerHTML = "";
 
   tablaDeAcciones.forEach((data) => {
     //reemplazo f.flecha: tablaDeAcciones.foreach(function(data){})
@@ -146,6 +147,25 @@ function probartabla() {
   });
 }
 probartabla();
+
+//boton1, ordenar de mayor a menor
+const mayor = document.getElementById("btn1");
+mayor.addEventListener("click", (e) => {
+  tablaDeAcciones.sort((a, b) => b.precio - a.precio);
+  console.log(tablaDeAcciones);
+  probartabla();
+});
+
+const menor = document.getElementById("btn2");
+menor.addEventListener("click", (e) => {
+  tablaDeAcciones.sort((a, b) => a.precio - b.precio);
+  console.log(tablaDeAcciones);
+  probartabla();
+});
+
+function actualizarLatabla() {
+  /* console.log(""); */
+}
 
 /*function probartabla() {
     const tabla = document.getElementById('tabla');
